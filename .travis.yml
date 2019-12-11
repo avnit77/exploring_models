@@ -5,4 +5,4 @@ script:
   - npm run lint
   - npm test
 services: mongodb
-env: MONGODB_URI=mongodb://localhost:27017/parks
+env: MONGODB_URI=mongodb://localhost:27017/models

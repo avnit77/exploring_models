@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node",
     "start:watch": "nodemon",
-    "test": "jest --verbose",
+    "test": "jest --verbose --runInBand",
     "test:watch": "npm run test -- --watchAll --coverage",
     "lint": "eslint '**/*.js'"
   },
