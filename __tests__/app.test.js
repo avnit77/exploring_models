@@ -13,17 +13,18 @@ const newPark = {
 
 describe('application routes', () => {
 
+  beforeAll(() => {
+    connect();
+  });
+
   beforeEach(() => {
     return mongoose.connection.dropDatabase();
   });
 
   afterAll(() => {
-    mongoose.connection.close();
+    return mongoose.connection.close();
   });
 
-  beforeAll(() => {
-    connect();
-  });
 
   it('gets parks', () => {
     return request(app)
@@ -33,7 +34,7 @@ describe('application routes', () => {
       });
   });
 
-  it('adds a park', async(done) => {
+  it('adds a park', () => {
     return request(app)
       .post('/parks')
       .send(newPark)
@@ -46,9 +47,6 @@ describe('application routes', () => {
           hasDogpark: true,
           quadrant: 'SE'
         });
-      })
-      .then(() => {
-        done();
       });
   });
 
@@ -72,7 +70,7 @@ describe('application routes', () => {
       });
   });
 
-  it('has a parks put route', async(done) => {
+  it('has a parks put route', () => {
     return request(app)
       .post('/parks')
       .send(newPark)
@@ -91,9 +89,6 @@ describe('application routes', () => {
           quadrant: 'SE'
         });
       })
-      .then(() => {
-        done();
-      });
   });
 
   it('deletes a park', () => {
