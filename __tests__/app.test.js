@@ -88,7 +88,7 @@ describe('application routes', () => {
           hasDogpark: true,
           quadrant: 'SE'
         });
-      })
+      });
   });
 
   it('deletes a park', () => {
